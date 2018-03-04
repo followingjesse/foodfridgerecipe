@@ -70,10 +70,32 @@
       <div class="masthead bg-primary text-white text-center container">
         <h1 class="text-uppercase mb-0"></h1>
         <h2 class="font-weight-light mb-0">Add your ingredients & generate your recipe</h2>
-        <a class="btn btn-xl btn-outline-light" href="#recipe">
-          <i class="fa"></i>
-          Add Ingredients
-        </a>
+
+  <div class="row">
+    <div class="col-lg-8">
+
+      <form action="add" id="contactForm" novalidate="novalidate">
+        <div class="row control-group">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <input class="form-control" id="ingredient" type="text" placeholder="Your Ingredient *" required data-validation-required-message="Please enter your ingredient">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="form-group">
+              <input class="form-control" id="expiry" type="email" placeholder="Expiry Date *" required data-validation-required-message="Please enter the expiry date">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+            <div class="clearfix"></div>
+            <div class="col-lg-12 text-center">
+              <div id="success"></div>
+              <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Add New Ingredient</button>
+            </div>
+        </div>
+      </form>
+    </div>
         <a class="btn btn-xl btn-outline-light" href="#recipe">
           <i class="fa"></i>
           Generate

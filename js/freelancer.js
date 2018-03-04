@@ -1,3 +1,30 @@
+var app = require('express')();
+var http = require('http').Server(app);
+var hbs = require('hbs');
+var fs = require('fs');
+
+app.set('view engine', 'html');
+app.engine('html', hbs.__express);
+
+app.get('/', function(req, res) {
+  var messages = JSON.parse(
+    fs.readFileSync('messages.json','utf8')
+    );
+    res.render(__dirname + '/index.html', {
+  });
+});
+
+app.get('/message', function(req, res) {
+  console.log(req.query);
+  var messages = JSON.parse(fs.readFileSync('messages.json','utf8'));
+  messages.push(req.query);
+  fs.writeFileSync('messages.json', JSON.stringify(messages));
+  res.redirect('/');
+})
+
+http.listen(3000, function() {
+  console.log("listening on port 3000");
+})
 (function($) {
   "use strict"; // Start of use strict
 
@@ -71,5 +98,7 @@
       $(this).removeClass("floating-label-form-group-with-focus");
     });
   });
+
+
 
 })(jQuery); // End of use strict
